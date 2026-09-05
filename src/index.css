@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ej-orange: #FF6600;
+  --color-ej-orange-hover: #E55B00;
+  --color-ej-orange-subtle: #FFF2EB;
+  --color-ej-orange-border: #FFD2B8;
+
+  --color-navy-950: #0C111D;
+  --color-navy-900: #101828;
+  --color-navy-850: #141D30;
+  --color-navy-800: #172033;
+  --color-navy-700: #1E293B;
+  --color-navy-600: #334155;
+
+  --color-canvas: #F6F7F9;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F8F9FB;
+  --color-border-subtle: #E4E7EC;
+  --color-border-strong: #D0D5DD;
+
+  --color-text-primary: #101828;
+  --color-text-secondary: #667085;
+  --color-text-tertiary: #98A2B3;
+
+  --color-status-success: #12B76A;
+  --color-status-success-bg: #ECFDF3;
+  --color-status-success-border: #ABEFC6;
+  
+  --color-status-warning: #F79009;
+  --color-status-warning-bg: #FFFAEB;
+  --color-status-warning-border: #FEDF89;
+
+  --color-status-error: #F04438;
+  --color-status-error-bg: #FEF3F2;
+  --color-status-error-border: #FECDCA;
+
+  --color-status-info: #2E90FA;
+  --color-status-info-bg: #EFF8FF;
+  --color-status-info-border: #B2DDFF;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: #101828;
+  background-color: #F6F7F9;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #F6F7F9;
+  overflow-x: hidden;
+}
+
+/* Custom crisp enterprise scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D0D5DD;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #98A2B3;
+}
+
+/* Subtle node pulsing for running DAG stages */
+@keyframes flow-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.animate-flow-pulse {
+  animation: flow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes stroke-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.flow-connector-active {
+  stroke-dasharray: 6 6;
+  animation: stroke-dash 1.2s linear infinite;
+}
